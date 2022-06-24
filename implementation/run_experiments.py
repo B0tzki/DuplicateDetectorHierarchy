@@ -1,7 +1,6 @@
 import utils
 
 import pandas as pd
-import sys
 import time
 import math
 import re
@@ -34,13 +33,15 @@ questions_set_testing = utils.create_set_questions_df(df_pairs_testing)
 
 questions_set_learning = questions_set_training.union(questions_set_validating)
 questions_set_testing_use = questions_set_testing.difference(questions_set_training.union(questions_set_validating))
-print(len(questions_set_validating), "print the dimension of the validation set")
-print(len(questions_set_validating.difference(questions_set_training)),
-      "print the dimenstion of the questions from vlidation but not in training")
 
-print(len(questions_set_testing.union(questions_set_validating.union(questions_set_training))),
-      "print the number of questions which will be used for the evaluating")
-print(len(questions_set_training), "print the dimension of the training set")
+###################These prints might be useful
+# print(len(questions_set_validating), "print the dimension of the validation set")
+# print(len(questions_set_validating.difference(questions_set_training)),
+#       "print the dimenstion of the questions from vlidation but not in training")
+
+# print(len(questions_set_testing.union(questions_set_validating.union(questions_set_training))),
+#       "print the number of questions which will be used for the evaluating")
+# print(len(questions_set_training), "print the dimension of the training set")
 
 df_questions_training = utils.create_df_question_based_on_pairs(df_pairs_training, df_questions)
 df_questions_validation = utils.create_df_question_based_on_pairs(df_pairs_validation, df_questions)
@@ -115,8 +116,6 @@ def use_embeddings_rank(rank):
             "../data/embeddings/duplicate_questions_exp_em_body_doc2vec_full_rank3.pkl")
         df_questions_em_title = pd.read_pickle(
             "../data/embeddings/duplicate_questions_exp_em_title_doc2vec_full_rank4.pkl")
-    else:
-        print("We did not generate embeddings for the specified rank"), sys.exit()
     df_questions_em_body.set_index('Id', inplace=True)
     df_questions_em_title.set_index('Id', inplace=True)
     return df_questions_em_body, df_questions_em_title
@@ -308,15 +307,15 @@ def evaluate_model(models, d_type_hier, tags_np_tuple, learning_np_tuple, testin
 
 def exp(rank, model_type):
     df_questions_em_body, df_questions_em_title = use_embeddings_rank(rank)
-    train_data_ml = utils.create_dataset_ml_tis(list_train_pairs, df_questions_em_body, df_questions_em_title)[:100]
+    train_data_ml = utils.create_dataset_ml_tis(list_train_pairs, df_questions_em_body, df_questions_em_title)
     # print("Start making the VALIDATION dataset for LR")
     validation_data_ml = utils.create_dataset_ml_tis(list_validation_pairs, df_questions_em_body,
-                                                     df_questions_em_title)[:100]
+                                                     df_questions_em_title)
     # print("Finish making the dataset for LR")
-    learning_data_ml = utils.merge_2_lists(train_data_ml, validation_data_ml)[:100]
-    list_learning_pairs = utils.merge_2_lists(list_train_pairs, list_validation_pairs)[:100]
-    list_learning_labels = utils.merge_2_lists(list_train_labels, list_validation_labels)[:100]
-    testing_data_ml = utils.create_dataset_ml_tis(list_testing_pairs, df_questions_em_body, df_questions_em_title)[:100]
+    learning_data_ml = utils.merge_2_lists(train_data_ml, validation_data_ml)
+    list_learning_pairs = utils.merge_2_lists(list_train_pairs, list_validation_pairs)
+    list_learning_labels = utils.merge_2_lists(list_train_labels, list_validation_labels)
+    testing_data_ml = utils.create_dataset_ml_tis(list_testing_pairs, df_questions_em_body, df_questions_em_title)
 
     train_data_np, train_labels_np, validation_data_np, validation_labels_np, learning_data_np, learning_labels_np, testing_data_np, testing_labels_np = make_data_numpy(
         train_data_ml, list_train_labels, validation_data_ml, list_validation_labels, learning_data_ml,
@@ -333,10 +332,8 @@ def exp(rank, model_type):
         models = {'KNeighborsClassifier': models['KNeighborsClassifier']}
     elif model_type == 'SVM':
         models = {'SVM': models['SVM']}
-    elif model_type != 'all':
-        print("We did not use this type textual information model"), sys.exit()
-    d_type_hier = hierachy_scores(list_learning_pairs[:100], list_testing_pairs[:10], df_questions)
-    tags_np_tuple = tags_scores(list_learning_pairs[:100], list_testing_pairs[:10], df_questions)
-    learning_np_tuple = (learning_data_np[:100], learning_labels_np[:100])
-    testing_np_tuple = (testing_data_np[:10], testing_labels_np[:10])
+    d_type_hier = hierachy_scores(list_learning_pairs, list_testing_pairs, df_questions)
+    tags_np_tuple = tags_scores(list_learning_pairs, list_testing_pairs, df_questions)
+    learning_np_tuple = (learning_data_np, learning_labels_np)
+    testing_np_tuple = (testing_data_np, testing_labels_np)
     evaluate_model(models, d_type_hier, tags_np_tuple, learning_np_tuple, testing_np_tuple, rank)

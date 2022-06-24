@@ -112,8 +112,6 @@ def create_positive_pair_set(df_pairs):
 def filter_based_on_hier_score(hier, labels, q_1, q_2, baseline_score, df_questions):
     tags1 = df_questions.loc[df_questions['Id'] == q_1]['Tags'].to_numpy()[0]
     tags2 = df_questions.loc[df_questions['Id'] == q_2]['Tags'].to_numpy()[0]
-    print("Printing the tags")
-    print(tags1)
     score = compute_score(hier, labels, tags1, tags2)
     return score >= baseline_score
 
@@ -143,12 +141,9 @@ def make_recommandations(ml_model, q_id, set_pairs, baseline_score, df_questions
     list_pairs, list_labels = create_all_pairs_for_rec_tags(df_questions_learning, set_pairs, q_id, tags_q_id,
                                                             baseline_score)
     data_learning = create_dataset_pred_v2(list_pairs, df_questions_body, df_questions_title, q_id)
-    # print(data_learning)
+
     predictions = ml_model.predict_proba(data_learning)[:, 1]
-    # print("predictions", predictions)
-    # print("I am here")
     output_data = sorted(zip(predictions, list_pairs, list_labels), reverse=True)
-    # output_data.sort()
     return output_data
 
 
@@ -214,7 +209,6 @@ def create_all_pairs_for_rec_tags(df_questions, set_positive_pairs, q_id, tags_q
             q2_id, q1_id = q1_id, q2_id
 
         list_pairs.append((q1_id, q2_id))
-        # print("I am here", (q1_id, q_id))
         if (q1_id, q2_id) in set_positive_pairs:
             list_labels.append(1)
         else:
@@ -250,8 +244,7 @@ def create_post_embeddings_dataframe(df_questions, model_body, model_title):
         body = model_body.infer_vector(body_text)
         list_em.append(np.concatenate((title, body), axis=None))
         list_ids.append(x)
-        # print(list_em)
-        # break
+
     new_column = 'Embeddings'
     data = {'Id': list_ids, new_column: list_em}
     df = pd.DataFrame(data)
