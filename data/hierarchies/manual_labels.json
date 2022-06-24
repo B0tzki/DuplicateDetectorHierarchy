@@ -1,0 +1,270 @@
+{
+  "Mobile": {
+    "label": null,
+    "weight": "1"
+  },
+  "Concepts": {
+    "label": null,
+    "weight": "1"
+  },
+  "General software development": {
+    "label": null,
+    "weight": "0.8"
+  },
+  "All": {
+    "label": null,
+    "weight": "0"
+  },
+  "General": {
+    "label": null,
+    "weight": "1"
+  },
+  "Front-End": {
+    "label": null,
+    "weight": "1"
+  },
+  "Back-End": {
+    "label": null,
+    "weight": "1"
+  },
+  "Full-Stack": {
+    "label": null,
+    "weight": "0.98"
+  },
+  "Web-development / Full-Stack": {
+    "label": null,
+    "weight": "0.90"
+  },
+  "Web technologies": {
+    "label": "Web Technologies",
+    "weight": "1"
+  },
+  "Web libraries": {
+    "label": null,
+    "weight": "1"
+  },
+  "Database/Querying": {
+    "label": null,
+    "weight": "1"
+  },
+  "Cloud": {
+    "label": null,
+    "weight": "1"
+  },
+  "Development": {
+    "label": "Development",
+    "weight": "1"
+  },
+  "root": {
+    "label": null,
+    "weight": "0"
+  },
+  "Management": {
+    "label": null,
+    "weight": "1"
+  },
+  "UI/UX": {
+    "label": null,
+    "weight": "1"
+  },
+  "VCS/Integration": {
+    "label": null,
+    "weight": "1"
+  },
+  "Architecture / Methodologies": {
+    "label": null,
+    "weight": "1"
+  },
+  "IDE / Text Editors": {
+    "label": null,
+    "weight": "1"
+  },
+  "Shell": {
+    "label": null,
+    "weight": "1"
+  },
+  "Open Source / Licensing": {
+    "label": null,
+    "weight": "1"
+  },
+  "Coding Challenges": {
+    "label": null,
+    "weight": "1"
+  },
+  "File formats": {
+    "label": null,
+    "weight": "1"
+  },
+  "Package Managers": {
+    "label": null,
+    "weight": "1"
+  },
+  "Programming Concepts": {
+    "label": null,
+    "weight": "1"
+  },
+  "Programming languages": {
+    "label": null,
+    "weight": "1"
+  },
+  "Software/Tech companies": {
+    "label": null,
+    "weight": "1"
+  },
+  "Desktop": {
+    "label": null,
+    "weight": "1"
+  },
+  "Platforms": {
+    "label": null,
+    "weight": "0.8"
+  },
+  "Web": {
+    "label": null,
+    "weight": "0.8"
+  },
+  "Social Media": {
+    "label": null,
+    "weight": "1"
+  },
+  "Other": {
+    "label": null,
+    "weight": "1"
+  },
+  "Computer Graphics / GPU": {
+    "label": null,
+    "weight": "1"
+  },
+  "Building": {
+    "label": null,
+    "weight": "1"
+  },
+  "Frameworks": {
+    "label": null,
+    "weight": "0.9"
+  },
+  "Software Engineering": {
+    "label": null,
+    "weight": "0.6"
+  },
+  "Low-level / Hardware": {
+    "label": null,
+    "weight": "0.7"
+  },
+  "Retro kits / DIY": {
+    "label": null,
+    "weight": "1"
+  },
+  "Automation": {
+    "label": null,
+    "weight": "0.9"
+  },
+  "Bots": {
+    "label": null,
+    "weight": "1"
+  },
+  "Robots": {
+    "label": null,
+    "weight": "1"
+  },
+  "Art": {
+    "label": null,
+    "weight": "1"
+  },
+  "Engines": {
+    "label": null,
+    "weight": "1"
+  },
+  "Game Jams": {
+    "label": null,
+    "weight": "1"
+  },
+  "Game Development": {
+    "label": null,
+    "weight": "0.9"
+  },
+  "Entertainment": {
+    "label": null,
+    "weight": "0.7"
+  },
+  "Games": {
+    "label": null,
+    "weight": "0.8"
+  },
+  "Other Games": {
+    "label": null,
+    "weight": "1"
+  },
+  "Video Games": {
+    "label": null,
+    "weight": "1"
+  },
+  "Web-browsers": {
+    "label": null,
+    "weight": "1"
+  },
+  "Search Engines": {
+    "label": null,
+    "weight": "1"
+  },
+  "Websites": {
+    "label": null,
+    "weight": "0.9"
+  },
+  "Network": {
+    "label": null,
+    "weight": "0.7"
+  },
+  "Protocols/Standards": {
+    "label": null,
+    "weight": "1"
+  },
+  "Crypto": {
+    "label": null,
+    "weight": "1"
+  },
+  "AI": {
+    "label": null,
+    "weight": "1"
+  },
+  "Data-science": {
+    "label": null,
+    "weight": "0.9"
+  },
+  "Scientific": {
+    "label": null,
+    "weight": "0.8"
+  },
+  "Tools": {
+    "label": null,
+    "weight": "1"
+  },
+  "Education": {
+    "label": null,
+    "weight": "1"
+  },
+  "Application": {
+    "label": null,
+    "weight": "1"
+  },
+  "Monitoring/Analytics": {
+    "label": null,
+    "weight": "1"
+  },
+  "Communication": {
+    "label": null,
+    "weight": "1"
+  },
+  "Misc": {
+    "label": null,
+    "weight": "0.5"
+  },
+  "Windows": {
+    "label": null,
+    "weight": "1"
+  },
+  "Cross-Platform": {
+    "label": null,
+    "weight": "1"
+  }
+}
